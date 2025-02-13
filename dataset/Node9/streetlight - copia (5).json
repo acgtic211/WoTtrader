@@ -1,0 +1,59 @@
+{
+    "description": "Street light in External University of Spain",
+    "base": "http://localhost/agent14/streetlight5",
+    "events": {},
+    "links": [],
+    "properties": {
+        "lightOn": {
+            "title": "Status of the light",
+            "description": "Value of the street light that changes if the street light is on or off",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent14/streetlight5/lightOn",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "lightIntensity": {
+            "title": "Intensity of the light",
+            "description": "Value of the street light that measures the intensity of the light",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent14/streetlight5/lightIntensity",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "lightTime": {
+            "title": "Time of the bulb usage",
+            "description": "Value that indicates in hours the time the bulb has been used",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent14/streetlight5/lightTime",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "actions": {},
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "Street light",
+    "@context": "https://www.w3.org/2022/wot/td/v1.1"
+}

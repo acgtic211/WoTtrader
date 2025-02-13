@@ -1,0 +1,152 @@
+version: "3.2"
+services:
+  jena-fuseki1:
+    image: stain/jena-fuseki
+    ports:
+      - "3121:3030"
+    environment:
+      - ADMIN_PASSWORD=pw123
+      - TDB=2
+    volumes:
+      - "fuseki-data1:/fuseki"
+      - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+    command: >
+      sh -c "
+      cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+      /jena-fuseki/fuseki-server"
+    networks:
+      - wottrader
+
+
+
+  jena-fuseki2:
+    image: stain/jena-fuseki
+    ports:
+      - "3122:3030"
+    environment:
+      - ADMIN_PASSWORD=pw123
+      - TDB=2
+    volumes:
+      - "fuseki-data2:/fuseki"
+      - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+    command: >
+      sh -c "
+      cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+      /jena-fuseki/fuseki-server"
+    networks:
+      - wottrader
+
+  jena-fuseki3:
+    image: stain/jena-fuseki
+    ports:
+      - "3123:3030"
+    environment:
+      - ADMIN_PASSWORD=pw123
+      - TDB=2
+    volumes:
+      - "fuseki-data3:/fuseki"
+      - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+    command: >
+      sh -c "
+      cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+      /jena-fuseki/fuseki-server"
+    networks:
+      - wottrader
+
+  jena-fuseki4:
+    image: stain/jena-fuseki
+    ports:
+      - "3124:3030"
+    environment:
+      - ADMIN_PASSWORD=pw123
+      - TDB=2
+    volumes:
+      - "fuseki-data4:/fuseki"
+      - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+    command: >
+      sh -c "
+      cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+      /jena-fuseki/fuseki-server"
+    networks:
+      - wottrader
+
+  jena-fuseki5:
+    image: stain/jena-fuseki
+    ports:
+      - "3125:3030"
+    environment:
+      - ADMIN_PASSWORD=pw123
+      - TDB=2
+    volumes:
+      - "fuseki-data5:/fuseki"
+      - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+    command: >
+      sh -c "
+      cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+      /jena-fuseki/fuseki-server"
+    networks:
+      - wottrader
+
+  jena-fuseki6:
+    image: stain/jena-fuseki
+    ports:
+      - "3126:3030"
+    environment:
+      - ADMIN_PASSWORD=pw123
+      - TDB=2
+    volumes:
+      - "fuseki-data6:/fuseki"
+      - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+    command: >
+      sh -c "
+      cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+      /jena-fuseki/fuseki-server"
+    networks:
+      - wottrader
+
+  jena-fuseki7:
+    image: stain/jena-fuseki
+    ports:
+      - "3127:3030"
+    environment:
+      - ADMIN_PASSWORD=pw123
+      - TDB=2
+    volumes:
+      - "fuseki-data7:/fuseki"
+      - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+    command: >
+      sh -c "
+      cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+      /jena-fuseki/fuseki-server"
+    networks:
+      - wottrader
+
+  jena-fuseki8:
+    image: stain/jena-fuseki
+    ports:
+      - "3128:3030"
+    environment:
+      - ADMIN_PASSWORD=pw123
+      - TDB=2
+    volumes:
+      - "fuseki-data8:/fuseki"
+      - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+    command: >
+      sh -c "
+      cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+      /jena-fuseki/fuseki-server"
+    networks:
+      - wottrader
+
+volumes:
+  fuseki-data1:
+  fuseki-data2:
+  fuseki-data3:
+  fuseki-data4:
+  fuseki-data5:
+  fuseki-data6:
+  fuseki-data7:
+  fuseki-data8:
+
+networks:
+  wottrader:

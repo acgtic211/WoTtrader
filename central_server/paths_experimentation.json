@@ -1,0 +1,110 @@
+{
+    "node1":{
+        "name" : "node1",
+        "address" : "http://127.0.0.1:3021/api",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3022/api",
+            "http://127.0.0.1:3023/api",
+            "http://127.0.0.1:3024/api",
+            "http://127.0.0.1:3025/api",
+            "http://127.0.0.1:3028/api",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node2": {
+        "name" : "node2",
+        "address" : "http://127.0.0.1:3022/api",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3021/api", 
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node3": {
+        "name" : "node3",
+        "address" : "http://127.0.0.1:3023/api",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3021/api",
+            "http://127.0.0.1:3027/api",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node4": {
+        "name" : "node4",
+        "address" : "http://127.0.0.1:3024/api",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3021/api",
+            "http://127.0.0.1:3025/api",
+            "http://127.0.0.1:3026/api",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node5": {
+        "name" : "node5",
+        "address" : "http://127.0.0.1:3025/api",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3021/api",
+            "http://127.0.0.1:3024/api",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node6": {
+        "name" : "node6",
+        "address" : "http://127.0.0.1:3026/api",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3024/api",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node7": {
+        "name" : "node7",
+        "address" : "http://127.0.0.1:3027/api",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3023/api",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    
+    "node8": {
+        "name" : "node8",
+        "address" : "http://127.0.0.1:3028/api",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3021/api",
+            "http://127.0.0.1:9000/api",
+            "http://127.0.0.1:8081",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node9": {
+        "name" : "node9",
+        "address" : "http://127.0.0.1:9000/api",
+        "linkedDiscoveries" : [ 
+            "http://127.0.0.1:3028/api",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "node10": {
+        "name" : "node10",
+        "address" : "http://127.0.0.1:8081",
+        "linkedDiscoveries" : [
+            "http://127.0.0.1:3028/api",
+            "http://127.0.0.1:7999"
+        ]
+    },
+
+    "central-server": {
+        "name" : "central-server",
+        "address" : "http://127.0.0.1:7999",
+        "linkedDiscoveries" : [ 
+
+        ]
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "actions": {},
+    "description": "Camera in External University of Spain",
+    "base": "http://localhost/agent15/camera60",
+    "events": {},
+    "links": [],
+    "properties": {
+        "movement": {
+            "title": "Movement detected by the camera",
+            "description": "Value of the camera that changes if it detects movement",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent15/camera60/movement",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "lastChange": {
+            "title": "Last time movement was detected",
+            "description": "It indicates the last time the camera detected movement",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent15/camera60/lastChange",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "Camera",
+    "@context": "https://www.w3.org/2022/wot/td/v1.1"
+}

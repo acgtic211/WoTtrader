@@ -1,0 +1,46 @@
+{
+    "@context": "https://www.w3.org/2022/wot/td/v1.1",
+    "description": "Thermostat controller in IT building laboratory",
+    "base": "http://localhost/agent12/heatingcontrol",
+    "events": {},
+    "links": [],
+    "properties": {
+        "heatingOn": {
+            "title": "Thermostat status",
+            "description": "If the thermostat is on or off",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent12/heatingcontrol/heatingOn",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "actions": {
+        "heatingcontrol": {
+            "title": "Change the status of the thermostat",
+            "description": "Turn the thermostat on or off",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent12/heatingcontrol",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "Thermostat controller"
+}

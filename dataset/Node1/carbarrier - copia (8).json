@@ -1,0 +1,74 @@
+{
+    "@context": "https://www.w3.org/2022/wot/td/v1.1",
+    "description": "Car barrier in Central University",
+    "base": "http://localhost/agent22/carbarrier8",
+    "events": {},
+    "links": [],
+    "properties": {
+        "open": {
+            "title": "Car barrier status",
+            "description": "If the barrier is opened or not",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent22/carbarrier8/open",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "lastChange": {
+            "title": "Last time barrier was opened",
+            "description": "It indicates the last time the barrier was opened",
+            "type": "string",
+            "forms": [
+                {
+                    "href": "http://localhost/agent22/carbarrier8/lastChange",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "licensePlate": {
+            "title": "License plate of the latest car",
+            "description": "License plate of the latest car that was allowed to pass",
+            "type": "string",
+            "forms": [
+                {
+                    "href": "http://localhost/agent22/carbarrier8/licensePlate",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "action": {
+        "open": {
+            "title": "Modify the barrier",
+            "description": "Open or close the barrier",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent22/carbarrier8/open",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "Car barrier"
+}

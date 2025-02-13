@@ -1,0 +1,72 @@
+{
+    "@context": "https://www.w3.org/2022/wot/td/v1.1",
+    "description": "Weather Station in International University",
+    "base": "http://localhost/agent13/weatherstat",
+    "events": {},
+    "links": [],
+    "properties": {
+        "humidity": {
+            "title": "Humidity",
+            "description": "Humidity",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent13/weatherstat/humidity",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "temperature": {
+            "title": "Temperature",
+            "description": "Temperature",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent13/weatherstat/temperature",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "pressure": {
+            "title": "Pressure",
+            "description": "Pressure",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent13/weatherstat/pressure",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "windSpeed": {
+            "title": "Wind Speed",
+            "description": "Wind Speed",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent13/weatherstat/windSpeed",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "Weather Station service"
+}

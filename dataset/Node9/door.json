@@ -1,0 +1,46 @@
+{
+    "description": "Door lock service in External University of Spain",
+    "base": "http://localhost/agent12/doorlock",
+    "events": {},
+    "links": [],
+    "properties": {
+        "open": {
+            "title": "Door lock status",
+            "description": "If the door is opened or not",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent12/doorlock/open",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "action": {
+        "open": {
+            "title": "Modify the door lock",
+            "description": "Open or close the doorlock",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent12/doorlock/open",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "Door lock service",
+    "@context": "https://www.w3.org/2022/wot/td/v1.1"
+}

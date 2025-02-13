@@ -1,0 +1,93 @@
+{
+    "@context": "https://www.w3.org/2019/wot/td/v1",
+    "title": "Smartplug",
+    "description": "Smartplug in Technology park laboratory",
+    "properties": {
+        "powerConsumption": {
+            "type": "number",
+            "description": "Power consumption of the smart plug",
+            "minimum": 0.0,
+            "forms": [
+                {
+                    "op":"readproperty",
+                    "href": "http://localhost/agent24/smartplug3/property/powerConsumption"
+                }
+            ]
+        },
+        "energyConsumption": {
+            "type": "number",
+            "description": "Energy consumption of the smart plug",
+            "minimum": 0.0,
+            "forms": [
+                {
+                    "op": "readproperty",
+                    "href": "http://localhost/agent24/smartplug3/property/energyConsumption"
+                }
+            ]
+        },
+        "quality": {
+            "type": "string",
+            "description": "Connection quality of the smart plug to the network",
+            "enum": ["UNKNOWN"],
+            "forms": [
+                {
+                    "op": "readproperty",
+                    "href": "http://localhost/agent24/smartplug3/property/quality"
+                }
+            ]
+        },
+        "status": {
+            "type": "string",
+            "description": "Switch state of the smart plug, ON or OFF",
+            "enum": ["ON", "OFF"],
+            "forms": [
+                {
+                    "href": "http://localhost/agent24/smartplug3/property/status"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "setStatus": {
+            "title": "On/Off Action",
+            "description": "Turn on or off the smart plug. On = true, Off = false",
+            "input": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "status"
+                ]
+            },
+            "output": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "status"
+                ]
+            },
+            "forms": [
+                {
+                    "op": "invokeaction",
+                    "href": "http://localhost/agent24/smartplug3/action/setStatus",
+                    "contentType": "application/json"
+                }
+            ]
+        }
+    },
+    "events": {},
+    "links": [],
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    }
+}

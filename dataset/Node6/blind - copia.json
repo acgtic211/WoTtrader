@@ -1,0 +1,52 @@
+{
+    "@context": "https://www.w3.org/2022/wot/td/v1.1",
+    "title": "Blind",
+    "description": "Blind in IT building laboratory",
+    "properties": {
+        "percentageOpen": {
+            "title": "Percentage Open of the blind",
+            "description": "It indicates at what percentage (based in the height) the blind is open. 0 is closed and 100 is fully open",
+            "type": "integer",
+            "forms": [
+                {
+                    "href": "http://localhost/agent7/blind2/property/percentageOpen",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "actions": 
+    {
+        "setPercentageOpen": {
+            "title": "Set Percentage Open of the blind",
+            "description": "Sets the percentage (based on the height) the blind is open. 0 is closed and 100 is fully open",
+            "input": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+            },
+            "forms": [
+                {
+                    "href": "http://localhost/agent7/blind2/action/percentageOpen",
+                    "contentType": "application/json",
+                    "op": [
+                        "invokeaction"
+                    ]
+                }
+            ]
+        }
+    },
+    "events": {
+    },
+    "links": [
+    ],
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    }
+}

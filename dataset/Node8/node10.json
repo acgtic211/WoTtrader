@@ -1,0 +1,59 @@
+{
+    "@context" : [ 
+        "https://www.w3.org/2022/wot/td/v1.1", 
+        "https://www.w3.org/2022/wot/discovery"
+    ],
+    "@type" : [ 
+        "tm:ThingModel", 
+        "ThingDirectory"
+    ],
+    "title" : "Node 10",
+    "version" : {
+        "instance" : "1.0.0"
+    },
+    "base" : "http://TinyIoT:8081",
+    "tm:optional" : [],
+    "properties" : {},
+    "actions" : {
+        "searchJSONPath" : {
+            "description" : "JSONPath syntactic search.  This affordance is not normative and is provided for information only.",
+            "uriVariables" : {
+                "query" : {
+                    "title" : "A valid JSONPath expression",
+                    "type" : "string"
+                }
+            },
+            "output" : {
+                "description" : "The schema depends on the given query",
+                "type" : "object"
+            },
+            "safe" : true,
+            "idempotent" : true,
+            "forms" : [ 
+                {
+                    "href" : "/search/jsonpath?query={query}",
+                    "htv:methodName" : "GET",
+                    "response" : {
+                        "description" : "Success response",
+                        "contentType" : "application/json",
+                        "htv:statusCodeValue" : 200
+                    },
+                    "additionalResponses" : [ 
+                        {
+                            "description" : "JSONPath expression not provided or contains syntax errors",
+                            "contentType" : "application/problem+json",
+                            "htv:statusCodeValue" : 400
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "events" : {},
+    "security" : "nosec_sc",
+    "securityDefinitions" : {
+        "nosec_sc" : {
+            "scheme" : "nosec"
+        }
+    }
+}

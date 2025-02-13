@@ -1,0 +1,73 @@
+{
+    "@context": "https://www.w3.org/2022/wot/td/v1.1",
+    "actions": {},
+    "description": "Camera in IT building",
+    "base": "http://localhost/agent10/camera",
+    "events": {},
+    "links": [],
+    "properties": {
+        "movement": {
+            "title": "Movement detected by the camera",
+            "description": "Value of the camera that changes if it detects movement",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent10/camera/movement",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "lastChange": {
+            "title": "Last time movement was detected",
+            "description": "It indicates the last time the camera detected movement",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent10/camera/lastChange",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "peoplein": {
+            "title": "Number of people entering detected by the camera",
+            "description": "Value of the camera that increments if someone goes in the direction of entering",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent10/camera/peoplein",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "peopleout": {
+            "title": "Number of people exiting detected by the camera",
+            "description": "Value of the camera that increments if someone goes in the direction of exiting",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent10/camera/peopleout",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "Camera"
+}

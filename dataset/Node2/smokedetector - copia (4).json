@@ -1,0 +1,46 @@
+{
+    "@context": "https://www.w3.org/2022/wot/td/v1.1",
+    "@type": "Smoke Detector",
+    "title": "Smoke Detector",
+    "description": "Smoke Detector in City Center",
+    "base": "http://localhost/agent14/smokedetector4",
+    "properties": {
+        "status": {
+            "title": "Status of the detector",
+            "description": "Value of the detector, true is on and false is off",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent14/smokedetector4/property/status",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        },
+        "detectSmoke": {
+            "title": "Smoke detection",
+            "description": "It indicates if there is smoke or not. True is smoke detected and false is no smoke detected",
+            "type": "boolean",
+            "forms": [
+                {
+                    "href": "http://localhost/agent14/smokedetector4/property/detectSmoke",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "actions": {},
+    "events": {},
+    "links": [],
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    }
+}

@@ -1,0 +1,549 @@
+version: '3.8'
+
+services:
+
+##############################################################################################################
+######################################### NODE 1 #############################################################
+##############################################################################################################
+
+  wottrader1:
+    image: acgtic211/wottrader:1.0.0
+    ports:
+      - "3021:3000"
+    depends_on:
+      - mongodb1
+      - jena-fuseki1
+    environment:
+      - MONGODB_URI_DEVELOPMENT=mongodb://wot_admin:pw1234@mongodb1:27017/
+      - MONGODB_DATABASE=node-database
+      - FUSEKI_URI_DEVELOPMENT=http://jena-fuseki1:3030/wottrader
+      - FUSEKI_USERNAME=admin
+      - FUSEKI_PASSWORD=pw123
+      - WEB_APP_PORT=3000
+    command: >
+      sh -c "
+      /wait-for-it.sh mongodb1:27017 -- 
+      /wait-for-it.sh jena-fuseki1:3030 -- 
+      npm start"
+    networks:
+      - wottrader
+
+  mongodb1:
+    image: bitnami/mongodb:4.4
+    ports:
+      - "27121:27017"
+    environment:
+      - MONGODB_ROOT_PASSWORD=pw1234
+      - MONGODB_USERNAME=wot_admin
+      - MONGODB_PASSWORD=pw1234
+      - MONGODB_DATABASE=node-database
+    volumes:
+      - mongodb_data1:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    networks:
+      - wottrader
+
+  jena-fuseki1:
+    image: stain/jena-fuseki
+    ports:
+      - "3121:3030"
+    environment:
+      - ADMIN_PASSWORD=pw123
+      - TDB=2
+    volumes:
+      - "fuseki_data1:/fuseki"
+      - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+    command: >
+      sh -c "
+      cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+      /jena-fuseki/fuseki-server"
+    networks:
+      - wottrader
+
+
+##############################################################################################################
+######################################### NODE 2 #############################################################
+##############################################################################################################
+
+  wottrader2:
+      image: acgtic211/wottrader:1.0.0
+      ports:
+        - "3022:3000"
+      depends_on:
+        - mongodb2
+        - jena-fuseki2
+      environment:
+        - MONGODB_URI_DEVELOPMENT=mongodb://wot_admin:pw1234@mongodb2:27017/
+        - MONGODB_DATABASE=node-database
+        - FUSEKI_URI_DEVELOPMENT=http://jena-fuseki2:3030/wottrader
+        - FUSEKI_USERNAME=admin
+        - FUSEKI_PASSWORD=pw123
+        - WEB_APP_PORT=3000
+      command: >
+        sh -c "
+        /wait-for-it.sh mongodb2:27017 -- 
+        /wait-for-it.sh jena-fuseki2:3030 -- 
+        npm start"
+      networks:
+        - wottrader
+
+  mongodb2:
+      image: bitnami/mongodb:4.4
+      ports:
+        - "27122:27017"
+      environment:
+        - MONGODB_ROOT_PASSWORD=pw1234
+        - MONGODB_USERNAME=wot_admin
+        - MONGODB_PASSWORD=pw1234
+        - MONGODB_DATABASE=node-database
+      volumes:
+        - mongodb_data2:/data/db
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      networks:
+        - wottrader
+
+  jena-fuseki2:
+      image: stain/jena-fuseki
+      ports:
+        - "3122:3030"
+      environment:
+        - ADMIN_PASSWORD=pw123
+        - TDB=2
+      volumes:
+        - "fuseki_data2:/fuseki"
+        - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+      command: >
+        sh -c "
+        cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+        /jena-fuseki/fuseki-server"
+      networks:
+        - wottrader
+
+
+##############################################################################################################
+######################################### NODE 3 #############################################################
+##############################################################################################################
+
+  wottrader3:
+      image: acgtic211/wottrader:1.0.0
+      ports:
+        - "3023:3000"
+      depends_on:
+        - mongodb3
+        - jena-fuseki3
+      environment:
+        - MONGODB_URI_DEVELOPMENT=mongodb://wot_admin:pw1234@mongodb3:27017/
+        - MONGODB_DATABASE=node-database
+        - FUSEKI_URI_DEVELOPMENT=http://jena-fuseki3:3030/wottrader
+        - FUSEKI_USERNAME=admin
+        - FUSEKI_PASSWORD=pw123
+        - WEB_APP_PORT=3000
+      command: >
+        sh -c "
+        /wait-for-it.sh mongodb3:27017 -- 
+        /wait-for-it.sh jena-fuseki3:3030 -- 
+        npm start"
+      networks:
+        - wottrader
+
+  mongodb3:
+      image: bitnami/mongodb:4.4
+      ports:
+        - "27123:27017"
+      environment:
+        - MONGODB_ROOT_PASSWORD=pw1234
+        - MONGODB_USERNAME=wot_admin
+        - MONGODB_PASSWORD=pw1234
+        - MONGODB_DATABASE=node-database
+      volumes:
+        - mongodb_data3:/data/db
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      networks:
+        - wottrader
+
+  jena-fuseki3:
+      image: stain/jena-fuseki
+      ports:
+        - "3123:3030"
+      environment:
+        - ADMIN_PASSWORD=pw123
+        - TDB=2
+      volumes:
+        - "fuseki_data3:/fuseki"
+        - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+      command: >
+        sh -c "
+        cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+        /jena-fuseki/fuseki-server"
+      networks:
+        - wottrader
+
+
+##############################################################################################################
+######################################### NODE 4 #############################################################
+##############################################################################################################
+
+  wottrader4:
+      image: acgtic211/wottrader:1.0.0
+      ports:
+        - "3024:3000"
+      depends_on:
+        - mongodb4
+        - jena-fuseki4
+      environment:
+        - MONGODB_URI_DEVELOPMENT=mongodb://wot_admin:pw1234@mongodb4:27017/
+        - MONGODB_DATABASE=node-database
+        - FUSEKI_URI_DEVELOPMENT=http://jena-fuseki4:3030/wottrader
+        - FUSEKI_USERNAME=admin
+        - FUSEKI_PASSWORD=pw123
+        - WEB_APP_PORT=3000
+      command: >
+        sh -c "
+        /wait-for-it.sh mongodb4:27017 -- 
+        /wait-for-it.sh jena-fuseki4:3030 -- 
+        npm start"
+      networks:
+        - wottrader
+
+  mongodb4:
+      image: bitnami/mongodb:4.4
+      ports:
+        - "27124:27017"
+      environment:
+        - MONGODB_ROOT_PASSWORD=pw1234
+        - MONGODB_USERNAME=wot_admin
+        - MONGODB_PASSWORD=pw1234
+        - MONGODB_DATABASE=node-database
+      volumes:
+        - mongodb_data4:/data/db
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      networks:
+        - wottrader
+
+  jena-fuseki4:
+      image: stain/jena-fuseki
+      ports:
+        - "3124:3030"
+      environment:
+        - ADMIN_PASSWORD=pw123
+        - TDB=2
+      volumes:
+        - "fuseki_data4:/fuseki"
+        - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+      command: >
+        sh -c "
+        cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+        /jena-fuseki/fuseki-server"
+      networks:
+        - wottrader
+
+
+##############################################################################################################
+######################################### NODE 5 #############################################################
+##############################################################################################################
+
+
+  wottrader5:
+      image: acgtic211/wottrader:1.0.0
+      ports:
+        - "3025:3000"
+      depends_on:
+        - mongodb5
+        - jena-fuseki5
+      environment:
+        - MONGODB_URI_DEVELOPMENT=mongodb://wot_admin:pw1234@mongodb5:27017/
+        - MONGODB_DATABASE=node-database
+        - FUSEKI_URI_DEVELOPMENT=http://jena-fuseki5:3030/wottrader
+        - FUSEKI_USERNAME=admin
+        - FUSEKI_PASSWORD=pw123
+        - WEB_APP_PORT=3000
+      command: >
+        sh -c "
+        /wait-for-it.sh mongodb5:27017 -- 
+        /wait-for-it.sh jena-fuseki5:3030 -- 
+        npm start"
+      networks:
+        - wottrader
+
+  mongodb5:
+      image: bitnami/mongodb:4.4
+      ports:
+        - "27125:27017"
+      environment:
+        - MONGODB_ROOT_PASSWORD=pw1234
+        - MONGODB_USERNAME=wot_admin
+        - MONGODB_PASSWORD=pw1234
+        - MONGODB_DATABASE=node-database
+      volumes:
+        - mongodb_data5:/data/db
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      networks:
+        - wottrader
+
+  jena-fuseki5:
+      image: stain/jena-fuseki
+      ports:
+        - "3125:3030"
+      environment:
+        - ADMIN_PASSWORD=pw123
+        - TDB=2
+      volumes:
+        - "fuseki_data5:/fuseki"
+        - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+      command: >
+        sh -c "
+        cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+        /jena-fuseki/fuseki-server"
+      networks:
+        - wottrader
+
+
+##############################################################################################################
+######################################### NODE 6 #############################################################
+##############################################################################################################
+
+
+
+  wottrader6:
+      image: acgtic211/wottrader:1.0.0
+      ports:
+        - "3026:3000"
+      depends_on:
+        - mongodb6
+        - jena-fuseki6
+      environment:
+        - MONGODB_URI_DEVELOPMENT=mongodb://wot_admin:pw1234@mongodb6:27017/
+        - MONGODB_DATABASE=node-database
+        - FUSEKI_URI_DEVELOPMENT=http://jena-fuseki6:3030/wottrader
+        - FUSEKI_USERNAME=admin
+        - FUSEKI_PASSWORD=pw123
+        - WEB_APP_PORT=3000
+      command: >
+        sh -c "
+        /wait-for-it.sh mongodb6:27017 -- 
+        /wait-for-it.sh jena-fuseki6:3030 -- 
+        npm start"
+      networks:
+        - wottrader
+
+  mongodb6:
+      image: bitnami/mongodb:4.4
+      ports:
+        - "27126:27017"
+      environment:
+        - MONGODB_ROOT_PASSWORD=pw1234
+        - MONGODB_USERNAME=wot_admin
+        - MONGODB_PASSWORD=pw1234
+        - MONGODB_DATABASE=node-database
+      volumes:
+        - mongodb_data6:/data/db
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      networks:
+        - wottrader
+
+  jena-fuseki6:
+      image: stain/jena-fuseki
+      ports:
+        - "3126:3030"
+      environment:
+        - ADMIN_PASSWORD=pw123
+        - TDB=2
+      volumes:
+        - "fuseki_data6:/fuseki"
+        - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+      command: >
+        sh -c "
+        cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+        /jena-fuseki/fuseki-server"
+      networks:
+        - wottrader
+
+
+##############################################################################################################
+######################################### NODE 7 #############################################################
+##############################################################################################################
+
+
+  wottrader7:
+      image: acgtic211/wottrader:1.0.0
+      ports:
+        - "3027:3000"
+      depends_on:
+        - mongodb7
+        - jena-fuseki7
+      environment:
+        - MONGODB_URI_DEVELOPMENT=mongodb://wot_admin:pw1234@mongodb7:27017/
+        - MONGODB_DATABASE=node-database
+        - FUSEKI_URI_DEVELOPMENT=http://jena-fuseki7:3030/wottrader
+        - FUSEKI_USERNAME=admin
+        - FUSEKI_PASSWORD=pw123
+        - WEB_APP_PORT=3000
+      command: >
+        sh -c "
+        /wait-for-it.sh mongodb7:27017 -- 
+        /wait-for-it.sh jena-fuseki7:3030 -- 
+        npm start"
+      networks:
+        - wottrader
+
+  mongodb7:
+      image: bitnami/mongodb:4.4
+      ports:
+        - "27127:27017"
+      environment:
+        - MONGODB_ROOT_PASSWORD=pw1234
+        - MONGODB_USERNAME=wot_admin
+        - MONGODB_PASSWORD=pw1234
+        - MONGODB_DATABASE=node-database
+      volumes:
+        - mongodb_data7:/data/db
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      networks:
+        - wottrader
+
+  jena-fuseki7:
+      image: stain/jena-fuseki
+      ports:
+        - "3127:3030"
+      environment:
+        - ADMIN_PASSWORD=pw123
+        - TDB=2
+      volumes:
+        - "fuseki_data7:/fuseki"
+        - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+      command: >
+        sh -c "
+        cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+        /jena-fuseki/fuseki-server"
+      networks:
+        - wottrader
+
+##############################################################################################################
+######################################### NODE 8 #############################################################
+##############################################################################################################
+
+  wottrader8:
+      image: acgtic211/wottrader:1.0.0
+      ports:
+        - "3028:3000"
+      depends_on:
+        - mongodb8
+        - jena-fuseki8
+      environment:
+        - MONGODB_URI_DEVELOPMENT=mongodb://wot_admin:pw1234@mongodb8:27017/
+        - MONGODB_DATABASE=node-database
+        - FUSEKI_URI_DEVELOPMENT=http://jena-fuseki8:3030/wottrader
+        - FUSEKI_USERNAME=admin
+        - FUSEKI_PASSWORD=pw123
+        - WEB_APP_PORT=3000
+      command: >
+        sh -c "
+        /wait-for-it.sh mongodb8:27017 -- 
+        /wait-for-it.sh jena-fuseki8:3030 -- 
+        npm start"
+      networks:
+        - wottrader
+
+  mongodb8:
+      image: bitnami/mongodb:4.4
+      ports:
+        - "27128:27017"
+      environment:
+        - MONGODB_ROOT_PASSWORD=pw1234
+        - MONGODB_USERNAME=wot_admin
+        - MONGODB_PASSWORD=pw1234
+        - MONGODB_DATABASE=node-database
+      volumes:
+        - mongodb_data8:/data/db
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      networks:
+        - wottrader
+
+  jena-fuseki8:
+      image: stain/jena-fuseki
+      ports:
+        - "3128:3030"
+      environment:
+        - ADMIN_PASSWORD=pw123
+        - TDB=2
+      volumes:
+        - "fuseki_data8:/fuseki"
+        - "./fuseki-config.ttl:/staging/fuseki-config.ttl"
+      command: >
+        sh -c "
+        cp /staging/fuseki-config.ttl /fuseki/config.ttl &&
+        /jena-fuseki/fuseki-server"
+      networks:
+        - wottrader
+
+
+##############################################################################################################
+####################################### ADDITIONAL SERVICES ##################################################
+##############################################################################################################
+
+  central-server:
+    image: acgtic211/central-server:1.0.0
+    ports:
+      - "7999:7999"
+    networks:
+      - wottrader
+
+  web-discovery:
+    image: acgtic211/web-discovery:1.0.0
+    ports:
+      - "80:80"
+    networks:
+      - wottrader
+
+
+##############################################################################################################
+######################################### THIRD PARTY NODES ##################################################
+##############################################################################################################
+
+  triplestore:
+    image: acimmino/auroral-fuseky:latest
+    environment:
+     ADMIN_PASSWORD: pw123
+    volumes:
+    - triplestore:/fuseki
+    ports:
+      - '3030:3030'
+    networks:
+      - wottrader
+  wothive:
+    image: acimmino/wot-hive:latest
+    # volumes:
+    # - ./configuration.json:/usr/src/wothive/configuration.json
+    ports:
+      - '9000:9000'
+    networks:
+      - wottrader
+
+  TinyIoT:
+    image: ghcr.io/tinyiot/thing-directory
+    ports:
+      - '8081:8081'
+    networks:
+      - wottrader
+
+networks:
+  wottrader:
+
+volumes:
+  mongodb_data1:
+  fuseki_data1:
+  mongodb_data2:
+  fuseki_data2:
+  mongodb_data3:
+  fuseki_data3:
+  mongodb_data4:
+  fuseki_data4:
+  mongodb_data5:
+  fuseki_data5:
+  mongodb_data6:
+  fuseki_data6:
+  mongodb_data7:
+  fuseki_data7:
+  mongodb_data8:
+  fuseki_data8:
+  triplestore:

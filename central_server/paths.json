@@ -1,0 +1,110 @@
+{
+    "node1":{
+        "name" : "node1",
+        "address" : "http://wottrader1:3000/api",
+        "linkedDiscoveries" : [ 
+            "http://wottrader2:3000/api",
+            "http://wottrader3:3000/api",
+            "http://wottrader4:3000/api",
+            "http://wottrader5:3000/api",
+            "http://wottrader8:3000/api",
+            "http://central-server:7999"
+        ]
+    },
+
+    "node2": {
+        "name" : "node2",
+        "address" : "http://wottrader2:3000/api",
+        "linkedDiscoveries" : [ 
+            "http://wottrader1:3000/api", 
+            "http://central-server:7999"
+        ]
+    },
+
+    "node3": {
+        "name" : "node3",
+        "address" : "http://wottrader3:3000/api",
+        "linkedDiscoveries" : [ 
+            "http://wottrader1:3000/api",
+            "http://wottrader7:3000/api",
+            "http://central-server:7999"
+        ]
+    },
+
+    "node4": {
+        "name" : "node4",
+        "address" : "http://wottrader4:3000/api",
+        "linkedDiscoveries" : [ 
+            "http://wottrader1:3000/api",
+            "http://wottrader5:3000/api",
+            "http://wottrader6:3000/api",
+            "http://central-server:7999"
+        ]
+    },
+
+    "node5": {
+        "name" : "node5",
+        "address" : "http://wottrader5:3000/api",
+        "linkedDiscoveries" : [ 
+            "http://wottrader1:3000/api",
+            "http://wottrader4:3000/api",
+            "http://central-server:7999"
+        ]
+    },
+
+    "node6": {
+        "name" : "node6",
+        "address" : "http://wottrader6:3000/api",
+        "linkedDiscoveries" : [ 
+            "http://wottrader4:3000/api",
+            "http://central-server:7999"
+        ]
+    },
+
+    "node7": {
+        "name" : "node7",
+        "address" : "http://wottrader7:3000/api",
+        "linkedDiscoveries" : [ 
+            "http://wottrader3:3000/api",
+            "http://central-server:7999"
+        ]
+    },
+
+    
+    "node8": {
+        "name" : "node8",
+        "address" : "http://wottrader8:3000/api",
+        "linkedDiscoveries" : [ 
+            "http://wottrader1:3000/api",
+            "http://wothive:9000/api",
+            "http://TinyIoT:8081",
+            "http://central-server:7999"
+        ]
+    },
+
+    "node9": {
+        "name" : "node9",
+        "address" : "http://wothive:9000/api",
+        "linkedDiscoveries" : [ 
+            "http://wottrader8:3000/api",
+            "http://central-server:7999"
+        ]
+    },
+
+    "node10": {
+        "name" : "node10",
+        "address" : "http://TinyIoT:8081",
+        "linkedDiscoveries" : [
+            "http://wottrader8:3000/api",
+            "http://central-server:7999"
+        ]
+    },
+
+    "central-server": {
+        "name" : "central-server",
+        "address" : "http://central-server:7999",
+        "linkedDiscoveries" : [ 
+
+        ]
+    }
+}

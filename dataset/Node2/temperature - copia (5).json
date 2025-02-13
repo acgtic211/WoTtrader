@@ -1,0 +1,30 @@
+{
+    "@context": "https://www.w3.org/2022/wot/td/v1.1",
+    "description": "Temperature service located in bedroom in City Center",
+    "base": "http://localhost/agent18/tempin5",
+    "events": {},
+    "links": [],
+    "properties": {
+        "tempin": {
+            "title": "Temperature",
+            "description": "Temperature of the room",
+            "type": "number",
+            "forms": [
+                {
+                    "href": "http://localhost/agent18/tempin5",
+                    "contentType": "application/json",
+                    "op": [
+                        "readproperty"
+                    ]
+                }
+            ]
+        }
+    },
+    "security": "nosec_sc",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "title": "Temperature service"
+}
