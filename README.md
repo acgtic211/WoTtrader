@@ -113,6 +113,7 @@ volumes:
   triplestore:
 ```
 
+The `docker-compose.yml` file must be in a folder with the files `fuseki-config.ttl` and `init-mongo.js`.
 
 Run the docker command
 
