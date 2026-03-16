@@ -1,0 +1,14 @@
+cff-version: 1.1.0
+authors:
+- family-names: Juan Alberto
+  given-names: Llopis
+  orcid: https://orcid.org/0000-0001-8422-712X
+- family-names: Luis
+  given-names: Iribarne
+  orcid: https://orcid.org/0000-0003-1815-4721
+- family-names: Javier
+  given-names: Criado
+  orcid: https://orcid.org/0000-0002-8035-5260
+title:acgtic211/WoTtrader: WoTtrader first release
+version: v1.0.0
+date-released: 2026-03-16
